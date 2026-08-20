@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="search-panel" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">GitHub API Search</p>
+          <h1 id="page-title">GitHub Profile Finder</h1>
+          <p class="intro">
+            Search any GitHub username to view profile details, account stats,
+            and latest public repositories.
+          </p>
+        </div>
 
+        <form class="search-form" id="searchForm">
+          <label class="sr-only" for="usernameInput">GitHub username</label>
+          <input
+            id="usernameInput"
+            type="search"
+            placeholder="Enter username, e.g. torvalds"
+            autocomplete="off"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section class="status-card hidden" id="statusCard" role="status"></section>
+
+      <section class="profile-grid hidden" id="profileGrid">
+        <article class="profile-card">
+          <img id="avatar" class="avatar" alt="" />
+          <div class="profile-main">
+            <p class="username" id="username"></p>
+            <h2 id="name"></h2>
+            <p class="bio" id="bio"></p>
+          </div>
+
+          <div class="stats" aria-label="GitHub profile stats">
+            <div>
+              <strong id="repoCount">0</strong>
+              <span>Repos</span>
+            </div>
+            <div>
+              <strong id="followers">0</strong>
+              <span>Followers</span>
+            </div>
+            <div>
+              <strong id="following">0</strong>
+              <span>Following</span>
+            </div>
+          </div>
+
+          <dl class="details">
+            <div>
+              <dt>Location</dt>
+              <dd id="location">Not available</dd>
+            </div>
+            <div>
+              <dt>Company</dt>
+              <dd id="company">Not available</dd>
+            </div>
+            <div>
+              <dt>Website</dt>
+              <dd><a id="website" href="#" target="_blank" rel="noreferrer">Not available</a></dd>
+            </div>
+            <div>
+              <dt>Joined</dt>
+              <dd id="joined">Not available</dd>
+            </div>
+          </dl>
+
+          <a class="profile-link" id="profileLink" href="#" target="_blank" rel="noreferrer">
+            View GitHub Profile
+          </a>
+        </article>
+
+        <article class="repo-panel">
+          <div class="repo-header">
+            <div>
+              <p class="eyebrow">Repositories</p>
+              <h2>Latest Public Repos</h2>
+            </div>
+            <select id="repoSort" aria-label="Sort repositories">
+              <option value="updated">Recently updated</option>
+              <option value="stars">Most starred</option>
+              <option value="forks">Most forked</option>
+            </select>
+          </div>
+          <div class="repo-list" id="repoList"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
